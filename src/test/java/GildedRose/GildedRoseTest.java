@@ -86,4 +86,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 4, 33", gildedRose.getItems()[0].toString());
     }
+
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Aged_Brie_quality_30_sellin_5(){
+        Item[] items = {new Item("Aged Brie", 5, 30)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Aged Brie, 4, 31", gildedRose.getItems()[0].toString());
+    }
 }
