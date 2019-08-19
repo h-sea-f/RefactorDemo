@@ -142,4 +142,13 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("a, -1, 28", gildedRose.getItems()[0].toString());
     }
+
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Sulfuras_Hand_of_Ragnaros_quality_30_sellin___1(){
+        Item[] items = {new Item("Sulfuras, Hand of Ragnaros", -1, 30)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Sulfuras, Hand of Ragnaros, -1, 30", gildedRose.getItems()[0].toString());
+    }
+
 }
