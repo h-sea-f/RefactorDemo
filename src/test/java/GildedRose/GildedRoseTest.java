@@ -119,4 +119,19 @@ public class GildedRoseTest {
         assertEquals("Sulfuras, Hand of Ragnaros, 5, 30", gildedRose.getItems()[0].toString());
     }
 
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Aged_Brie_quality_30_sellin_0(){
+        Item[] items = {new Item("Aged Brie", 0, 30)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Aged Brie, -1, 32", gildedRose.getItems()[0].toString());
+    }
+
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Backstage_passes_to_a_TAFKAL80ETC_concert_quality_30_sellin_0(){
+        Item[] items = {new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert, -1, 0", gildedRose.getItems()[0].toString());
+    }
 }
