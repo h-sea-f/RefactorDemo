@@ -134,4 +134,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertEquals("Backstage passes to a TAFKAL80ETC concert, -1, 0", gildedRose.getItems()[0].toString());
     }
+
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_a_quality_30_sellin_0(){
+        Item[] items = {new Item("a", 0, 30)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("a, -1, 28", gildedRose.getItems()[0].toString());
+    }
 }
