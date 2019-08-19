@@ -88,6 +88,22 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Backstage_passes_to_a_TAFKAL80ETC_concert_quality_47_sellin_10(){
+        Item[] items = {new Item("Backstage passes to a TAFKAL80ETC concert", 10, 47)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert, 9, 49", gildedRose.getItems()[0].toString());
+    }
+
+    @Test
+    public void should_return_new_items_when_invoke_updateQuality_and_item_name_Backstage_passes_to_a_TAFKAL80ETC_concert_quality_47_sellin_5(){
+        Item[] items = {new Item("Backstage passes to a TAFKAL80ETC concert", 5, 47)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert, 4, 50", gildedRose.getItems()[0].toString());
+    }
+
+    @Test
     public void should_return_new_items_when_invoke_updateQuality_and_item_name_Aged_Brie_quality_30_sellin_5(){
         Item[] items = {new Item("Aged Brie", 5, 30)};
         GildedRose gildedRose = new GildedRose(items);
