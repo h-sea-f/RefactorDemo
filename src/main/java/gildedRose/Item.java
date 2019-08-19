@@ -8,10 +8,13 @@ public class Item {
 
     public int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    public BaseItem baseItem;
+
+    public Item(String name, int sellIn, int quality, BaseItem baseItem) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.baseItem = baseItem;
     }
 
     public String getName() {
@@ -30,16 +33,22 @@ public class Item {
         this.quality = quality;
     }
 
-    public void qualityIncrease(){
-        setQuality(getQuality()+1);
+    public void qualityIncrease() {
+        if (quality < 50) {
+            quality++;
+        }
     }
 
-    public void qualityReduce(){
-        setQuality(getQuality()-1);
+    public void qualityReduce() {
+        setQuality(getQuality() - 1);
+    }
+
+    public void update() {
+        baseItem.updateQuality(this);
     }
 
     @Override
-   public String toString() {
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }

@@ -13,23 +13,24 @@ public class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            boolean isNotAgedAndNotBackstage = !items[i].name.equals("Aged Brie") && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert");
-            if (isNotAgedAndNotBackstage) {
-                updateOtherItemQuality(items[i]);
-            } else {
-                if (items[i].quality < 50) {
-                    items[i].qualityIncrease();
-                    updateBackstageQuality(items[i]);
-                }
-            }
-
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                items[i].sellIn = items[i].sellIn - 1;
-            }
-
-            if (items[i].sellIn < 0) {
-                updateSellInSmall0Quality(items[i]);
-            }
+//            boolean isNotAgedAndNotBackstage = !items[i].name.equals("Aged Brie") && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert");
+//            if (isNotAgedAndNotBackstage) {
+//                updateOtherItemQuality(items[i]);
+//            } else {
+//                if (items[i].quality < 50) {
+//                    items[i].qualityIncrease();
+//                    updateBackstageQuality(items[i]);
+//                }
+//            }
+//
+//            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+//                items[i].sellIn = items[i].sellIn - 1;
+//            }
+//
+//            if (items[i].sellIn < 0) {
+//                updateSellInSmall0Quality(items[i]);
+//            }
+            items[i].update();
         }
     }
 
@@ -56,7 +57,7 @@ public class GildedRose {
         }
     }
 
-    public void updateSellInSmall0Quality(Item item){
+    public void updateSellInSmall0Quality(Item item) {
         if (!item.name.equals("Aged Brie")) {
             if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 updateNotAgedAndNotBackstageQuality(item);
@@ -70,7 +71,7 @@ public class GildedRose {
         }
     }
 
-    public void updateNotAgedAndNotBackstageQuality(Item item){
+    public void updateNotAgedAndNotBackstageQuality(Item item) {
         if (item.quality > 0) {
             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 item.qualityReduce();
